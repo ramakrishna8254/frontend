@@ -1,41 +1,35 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  labels:
-    app: springboot-frt-app-rama
-  name: springboot-frt-app-rama
+  name: hello-deployment
 spec:
-  replicas: 1
+  replicas: 1  
   selector:
     matchLabels:
-      app: springboot-frt-app-rama
+      app: hello-world
   template:
     metadata:
       labels:
-        app: springboot-frt-app-rama
+        app: hello-world
     spec:
+      imagePullSecrets:
+      - name: imagepull-docker
       containers:
-      - name: my-springboot-frt-app-rama
-        image: ramakrishna8254/week:v1
+      - name: hello-world
+        image: ramakrishna8254/week:v3
         imagePullPolicy: Always
         ports:
-        - containerPort: 8080
-          name: http
-          protocol: HTTP
-# service type loadbalancer       
+          - containerPort: 8080
 ---
+
 apiVersion: v1
 kind: Service
 metadata:
-  labels:
-    app: springboot-frt-app-rama    
-  name: springboot-frt-app-rama
+  name: hello-world
 spec:
   ports:
-  - name: http
-    port: 80
-    protocol: HTTP
+  - port: 8080
     targetPort: 8080
-  type: LoadBalancer
   selector:
-    app: springboot-frt-app-rama
+    app: hello-world
+  type: ClusterIP
