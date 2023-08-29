@@ -19,7 +19,7 @@ spec:
         image: 490167669940.dkr.ecr.ap-southeast-1.amazonaws.com/eks-frontend-app-deployment:frontend-34
         imagePullPolicy: Always
         ports:
-        - containerPort: 8080
+        - containerPort: 8085
           name: http
           protocol: TCP
 # service type loadbalancer       
@@ -36,7 +36,7 @@ spec:
   - name: http
     port: 80
     protocol: TCP
-    targetPort: 8080
+    targetPort: 8085
   type: LoadBalancer
   selector:
     app: springboot-frt-app-rama
