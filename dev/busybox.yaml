@@ -15,7 +15,7 @@ spec:
       imagePullSecrets:
       - name: imagepull-docker
       containers:
-      - name: busybox-test
+      - name: busybox
         image: busybox:latest
         imagePullPolicy: Always
         ports:
@@ -28,7 +28,7 @@ metadata:
   name: busybox-test
 spec:
   ports:
-  - port: 80
+  - port: 5701
     targetPort: 5701
   selector:
     app: busybox-test
