@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hello-deployment
+  name: nginx-deployment
 spec:
   replicas: 1  
   selector:
     matchLabels:
-      app: hello-world1
+      app: nginx
   template:
     metadata:
       labels:
-        app: hello-world1
+        app: nginx
     spec:
       imagePullSecrets:
       - name: imagepull-docker
       containers:
-      - name: hello-world
+      - name: nginx
         image: nginx:mainline-alpine3.18-slim
         imagePullPolicy: Always
         ports:
@@ -25,11 +25,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: hello-world1
+  name: nginx
 spec:
   ports:
   - port: 80
     targetPort: 80
   selector:
-    app: hello-world
+    app: nginx
   type: LoadBalancer
