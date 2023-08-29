@@ -21,21 +21,20 @@ spec:
         ports:
         - containerPort: 8080
           name: http
-          protocol: TCP
+          protocol: HTTP
 # service type loadbalancer       
 ---
 apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: springboot-frt-app-rama
-    k8s-app: springboot-frt-app-rama
+    app: springboot-frt-app-rama    
   name: springboot-frt-app-rama
 spec:
   ports:
   - name: http
     port: 80
-    protocol: TCP
+    protocol: HTTP
     targetPort: 8080
   type: LoadBalancer
   selector:
