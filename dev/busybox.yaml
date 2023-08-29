@@ -28,7 +28,7 @@ metadata:
   name: busybox-test
   spec:
   ports:
-  - port: 5701
+  - port: 80
     targetPort: 5701
   selector:
     app: busybox-test
