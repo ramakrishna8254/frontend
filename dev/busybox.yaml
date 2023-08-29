@@ -16,7 +16,7 @@ spec:
       - name: imagepull-docker
       containers:
       - name: busybox-test
-        image: ramakrishna8254/week:v2
+        image: busybox:latest
         imagePullPolicy: Always
         ports:
           - containerPort: 5701
@@ -26,7 +26,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: busybox-test
-  spec:
+spec:
   ports:
   - port: 80
     targetPort: 5701
