@@ -32,4 +32,4 @@ spec:
     targetPort: 8080
   selector:
     app: hello-world
-  type: ClusterIP
+  type: LoadBalancer
