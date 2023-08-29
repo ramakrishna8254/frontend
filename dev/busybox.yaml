@@ -16,10 +16,10 @@ spec:
       - name: imagepull-docker
       containers:
       - name: busybox
-        image: busybox:latest
+        image: jenkins/jenkins
         imagePullPolicy: Always
         ports:
-          - containerPort: 5701
+          - containerPort: 8080
 ---
 
 apiVersion: v1
@@ -28,8 +28,8 @@ metadata:
   name: busybox-test
 spec:
   ports:
-  - port: 5701
-    targetPort: 5701
+  - port: 8080
+    targetPort: 8080
   selector:
     app: busybox-test
   type: LoadBalancer
