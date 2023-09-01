@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hello-deployment
+  name: docker-deployment
 spec:
   replicas: 1
   revisionHistoryLimit: 3
@@ -34,4 +34,4 @@ spec:
     targetPort: 8080
   selector:
     app: hello-world
-  type: ClusterIP
+  type: LoadBalancer
