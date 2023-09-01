@@ -20,7 +20,7 @@ spec:
         image: ramakrishna8254/week:v3
         imagePullPolicy: Always
         ports:
-          - containerPort: 8083
+          - containerPort: 8080
 
 ---
 
@@ -30,8 +30,8 @@ metadata:
   name: docker-world
 spec:
   ports:
-  - port: 8083
-    targetPort: 8083
+  - port: 8080
+    targetPort: 8080
   selector:
     app: docker-world
   type: LoadBalancer
