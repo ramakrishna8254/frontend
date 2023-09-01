@@ -7,16 +7,16 @@ spec:
   revisionHistoryLimit: 3
   selector:
     matchLabels:
-      app: hello-world
+      app: docker-world
   template:
     metadata:
       labels:
-        app: hello-world
+        app: docker-world
     spec:
       imagePullSecrets:
       - name: imagepull-docker
       containers:
-      - name: hello-world
+      - name: docer-world
         image: ramakrishna8254/week:v3
         imagePullPolicy: Always
         ports:
@@ -27,11 +27,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: hello-world
+  name: docker-world
 spec:
   ports:
   - port: 8080
     targetPort: 8080
   selector:
-    app: hello-world
+    app: docker-world
   type: LoadBalancer
