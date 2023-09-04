@@ -17,7 +17,7 @@ spec:
       - name: imagepull-docker
       containers:
       - name: docer-world
-        image: ramakrishna8254/week:v2
+        image: ramakrishna8254/week:v1
         imagePullPolicy: Always
         ports:
           - containerPort: 8080
